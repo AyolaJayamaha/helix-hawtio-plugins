@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <title>Resource Manager</title>
+    <script src="js/angular.js"></script>
+  <script src="js/app.js"></script>
+</head>
+<body ng-app="app" ng-controller="AppCtrl as app">
+
+ 
+ <p>Select Cluster</p>
+   <select data-ng-options="o for o in app.clusters.listFields.clusters" ng-model="app.cluster.clusterName"  > </select> 
+  <input type="button" ng-click="app.listResources(app.cluster)" value="List Resources" />
+  <ul>
+    <li ng-repeat="item in app.resources.listFields.ResourceGroups">
+        {{item}}
+    </li>
+  </ul>
+  <input type="text" ng-model="app.cluster.resourceName" />
+  <input type="button" ng-click="app.addResources(app.cluster)" value="Add Resource" />
+  
+ 
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8">
+  <title>Instance Manager</title>
+    
+</head>
+<body ng-app="app" ng-controller="AppCtrl as app">
+
+ 
+ <p>Select Cluster</p>
+   <select data-ng-options="o for o in app.clusters.listFields.clusters" ng-model="app.cluster.clusterName"  > </select> 
+  <input type="button" ng-click="app.listInstances(app.cluster)" value="List Instances" />
+  <ul>
+    <li ng-repeat="item in app.instances.instanceInfo">
+        {{item.id}}
+    </li>
+  </ul>
+  <input type="text" ng-model="app.cluster.instanceName" />
+  <input type="button" ng-click="app.addInstances(app.cluster)" value="Add Instance" />
+  
+ <script src="js/angular.js"></script>
+  <script src="js/app.js"></script>
+
+
+</body>
+</html>
